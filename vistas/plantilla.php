@@ -80,34 +80,26 @@
                             </li>
                         <?php endif ?>
                     <?php endif ?>
+                        <!---Variables GET---->
+                    <?php else: ?>
 
-                        <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.php?pagina=registro">Registro</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link active" href="index.php?pagina=registro">
-                                    Registro
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?pagina=ingreso">Ingreso</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?pagina=ingreso">Ingreso</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="index.php?pagina=inicio">Inicio</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link " href="index.php?pagina=inicio">Inicio</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php?pagina=salir">Salir</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?pagina=salir">Salir</a>
-                            </li>
-
-                    <?php endif ?>
-
-
-
-                    <!---Variables GET---->
-
-                    
+                    <?php endif ?>                   
 
                 </ul>
             </div>
@@ -130,9 +122,6 @@
                 }else{
                     include "paginas/registro.php";
                 }
-
-                include "paginas/inicio.php";
-
             ?>
 
         </div>
