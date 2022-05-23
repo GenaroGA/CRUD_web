@@ -15,9 +15,9 @@ class ControladorFormularios{
         }
     }
 
-    static public function ctrSeleccionarRegistros(){
+    static public function ctrSeleccionarRegistros($item, $valor){
         $tabla = "registros";
-        $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla,null,null);
+        $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla,$item,$valor);
         return $respuesta;
     }
 
@@ -53,6 +53,46 @@ class ControladorFormularios{
             
         }
 
+    }
+    static public function ctrActualizarRegistro(){
+        if(isset($_POST["actualizarNombre"])){
+            if($_POST["actualizarPassword"] != ""){
+                $password = $_POST["actualizarPassword"];
+            }else{
+                $password = $_POST["passwordActual"];
+            }
+            $tabla = "registros";
+
+            $datos = array("id" => $_POST["idUsuario"],
+                            "nombre" => $_POST["actualizarNombre"],
+                            "email" => $_POST["actualizarEmail"],
+                            "password" => $password);
+            $respuesta = ModeloFormularios::mdlActualizarRegistro($tabla,$datos);
+            return $respuesta;
+
+            
+        }
+    }
+
+    public function ctrEliminarRegistro(){
+        if(isset($_POST["eliminarRegistro"])){
+
+            $tabla = "registros";
+            $valor = $_POST["eliminarRegistro"];
+            
+            $respuesta = ModeloFormularios::mdlEliminarRegistro($tabla,$valor);
+            return $respuesta;
+            if($respuesta == "ok"){
+                echo '<script>
+                if (window.history.replaceState){
+                    window.history.replaceState(null, null, window.location.href);
+                }
+                window.location = "index.php?pagina=inicio";
+
+                </script>';
+            }
+            
+        }
     }
 
 }
